@@ -3,7 +3,7 @@ body{
 }
 
 .container > header {
-    background-image: url(../images/header.jpg);
+    background-image: url(../images/layout/header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px;
@@ -24,8 +24,9 @@ body{
 }
 
 .nicksta-info{
-    float: left;
+    clear: left
 }
+
 .nicksta-info > figure{
     float: left;
     margin-right: 30px;
