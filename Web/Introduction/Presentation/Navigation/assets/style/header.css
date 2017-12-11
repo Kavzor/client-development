@@ -21,14 +21,11 @@ body{
     width: 60%;
     background-color: #ffffff;
     font-size: 1.4em;
+    margin-bottom: 0;
 }
 
 .nicksta-info{
     clear: left
-}
-
-.nicksta-info:last-child{
-    margin-bottom: 40px;
 }
 
 .nicksta-info > figure{
