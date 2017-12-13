@@ -4,7 +4,8 @@
 /******** Header section *******/
 
 body {
-  font-family: Verdana, Aria, Helvetica, sans-serif;
+    font-family: Verdana, Aria, Helvetica, sans-serif;
+    background-color: #e8eaed;
 }
 
 .header{
@@ -21,6 +22,8 @@ body {
     background-image: url(../images/layout/header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    color: #242291;
 }
 
 .header > p {
@@ -40,5 +43,7 @@ body {
 }
 
 .container {
-    margin: 0 30px 30px 30px
+    margin: 0 30px 30px 30px;
+
+    background-color: #ffffff;
 }
