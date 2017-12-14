@@ -180,5 +180,18 @@ form > p > label, form p > label ~ small{
 
 
 
-
-
+@media(max-width: 600px) {
+        .container:not(section){
+            position: static;
+            width: 80%;
+        }
+      .container:not(aside){
+          width: 80%;
+      }
+      
+      .container:not(section) img{
+          display: inline-block;
+          width: 30%
+      }
+        
+}
