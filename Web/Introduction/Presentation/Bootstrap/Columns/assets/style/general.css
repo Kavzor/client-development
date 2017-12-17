@@ -1,0 +1,25 @@
+body {   
+    background-color: #e8eaed;
+}
+
+section > figure{
+    margin: 0 10px 10px 0;
+}
+figcaption{
+    font-size: 0.7rem;
+}
+
+.page-header{
+        background-image: url(../images/layout/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+}
+
+footer {
+    text-align: center;
+}
+
+.container{
+        box-shadow: 0 0 5px #0074D9;
+}

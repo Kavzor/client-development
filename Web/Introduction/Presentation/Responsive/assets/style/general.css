@@ -174,24 +174,20 @@ input, textarea {
 }
 
 form > p > label, form p > label ~ small{
-    display:block;
+    display: block;
 }
 
 
 
-
-@media(max-width: 600px) {
-        .container:not(section){
-            position: static;
-            width: 80%;
-        }
-      .container:not(aside){
-          width: 80%;
-      }
-      
-      .container:not(section) img{
-          display: inline-block;
-          width: 30%
-      }
-        
+@media only screen and (min-width : 200px) and (max-width : 600px) {
+    .container:not(section), .container:not(aside){
+        width: 80%;
+    }
+    .container:not(section){
+        position: static;
+    }
+    .container:not(section) img{
+        display: inline-block;
+        width: 30%
+    }       
 }
