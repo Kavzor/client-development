@@ -13,7 +13,7 @@ figcaption{
         background-image: url(../images/layout/header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 30px;
+    padding: 10px;
 }
 
 
@@ -21,6 +21,6 @@ footer {
     text-align: center;
 }
 
-.container{
+.row > aside, .row > section{
         box-shadow: 0 0 5px #0074D9;
 }
