@@ -33,47 +33,51 @@
         </ul>
     </nav>
 
-    <section class="container">
-        <header class="header section-header">
-            <h2>Lämna dina synpunkter här!</h2>
-        </header>
-        <form>
-            <p>
-                <label>Rubrik</label>
-                <input type="text" pattern=".{3,10}" placeholder="Rubrik" title="Mellan 3 till 10 tecken">
-            </p>
-            <p>
-                <label>Beskrivning</label>
-                <textarea maxlength="100"></textarea>
+    <div class="container">
+        <div>
+            <section class="content">
+                <header class="header section-header">
+                    <h2>Lämna dina synpunkter här!</h2>
+                </header>
+                <form>
+                    <p>
+                        <label>Rubrik</label>
+                        <input type="text" pattern=".{3,10}" placeholder="Rubrik" title="Mellan 3 till 10 tecken">
+                    </p>
+                    <p>
+                        <label>Beskrivning</label>
+                        <textarea maxlength="100"></textarea>
 
-                <small>Max 100 tecken</small>
-            </p>
-            <p>
-                <label>Ärende</label>
-                <select>
-                    <option>Strand</option>
-                    <option>Golf</option>
-                    <option>Camping</option>
-                </select>
-            </p>
-            <div>
-                Vill du få svar på din synpunkt?
-                <div>
-                    <label>Ja</label>
-                    <input type="radio" name="reply" value="yes">
-                    <label>Nej</label>
-                    <input type="radio" name="reply" value="no" checked>
-
+                        <small>Max 100 tecken</small>
+                    </p>
+                    <p>
+                        <label>Ärende</label>
+                        <select>
+                            <option>Strand</option>
+                            <option>Golf</option>
+                            <option>Camping</option>
+                        </select>
+                    </p>
                     <div>
-                        <label>Email</label>
-                        <input type="email" placeholder="example@email.com">
-                    </div>
-                </div>
-            </div>
-            <input type="submit" value="Skicka..">
-        </form>
-    </section>
+                        Vill du få svar på din synpunkt?
+                        <div>
+                            <label>Ja</label>
+                            <input type="radio" name="reply" value="yes">
+                            <label>Nej</label>
+                            <input type="radio" name="reply" value="no" checked>
 
+                            <div>
+                                <label>Email</label>
+                                <input type="email" placeholder="example@email.com">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Skicka..">
+                </form>
+            </section>
+        </div>
+    </div>
+    
     <footer>
         <p>
             Vill du veta mer? Skicka e-post till <a href="mailto:kavzor@gmail.com">kavzor@gmail.com</a>

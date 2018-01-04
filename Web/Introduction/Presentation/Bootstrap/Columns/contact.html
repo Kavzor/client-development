@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/style/general.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Notera hur fonts ändras-->
+    
+    <link rel="stylesheet" href="assets/style/general.css">
     <title>Contact page</title>
 </head>
 
-<body>
-    <header class="header page-header">
+<body class="bg-light">
+    <header class="header page-header p-3">
         <h1>Nickstabadet</h1>
         <p>Ett solig sommarbad</p>
     </header>
+
 
     <nav>
         <ul>
@@ -32,52 +36,61 @@
             </li>
         </ul>
     </nav>
-
-    <section class="container">
-        <header class="header section-header">
-            <h2>Lämna dina synpunkter här!</h2>
-        </header>
-        <form>
-            <p>
-                <label>Rubrik</label>
-                <input type="text" pattern=".{3,10}" placeholder="Rubrik" title="Mellan 3 till 10 tecken">
-            </p>
-            <p>
-                <label>Beskrivning</label>
-                <textarea maxlength="100"></textarea>
-
-                <small>Max 100 tecken</small>
-            </p>
-            <p>
-                <label>Ärende</label>
-                <select>
-                    <option>Strand</option>
-                    <option>Golf</option>
-                    <option>Camping</option>
-                </select>
-            </p>
-            <div>
-                Vill du få svar på din synpunkt?
-                <div>
-                    <label>Ja</label>
-                    <input type="radio" name="reply" value="yes">
-                    <label>Nej</label>
-                    <input type="radio" name="reply" value="no" checked>
-
-                    <div>
-                        <label>Email</label>
-                        <input type="email" placeholder="example@email.com">
+    
+    <div class="container">
+        <div class="row">
+            <section class="p-3 mt-2 rounded bg-white">
+                <header class="header section-header">
+                    <h2>Lämna dina synpunkter här!</h2>
+                </header>
+                <form>
+                   <div>
+                        <label>Rubrik</label>
+                        <input type="text" pattern=".{3,10}" placeholder="Rubrik" title="Mellan 3 till 10 tecken">
                     </div>
-                </div>
-            </div>
-            <input type="submit" value="Skicka..">
-        </form>
-    </section>
+                    <div>
+                        <label>Beskrivning</label>
+                        <textarea maxlength="100"></textarea>
 
-    <footer>
-        <p>
+                        <small>Max 100 tecken</small>
+                    </div>
+                    <div>
+                        <label>Ärende</label>
+                        <select>
+                            <option>Strand</option>
+                            <option>Golf</option>
+                            <option>Camping</option>
+                        </select>
+                    </div>
+                    <div>
+                        Vill du få svar på din synpunkt?
+                        <div>
+                            <label>Ja</label>
+                            <input type="radio" name="reply" value="yes">
+                            <label>Nej</label>
+                            <input type="radio" name="reply" value="no" checked>
+
+                            <div>
+                                <label>Email</label>
+                                <input type="email" placeholder="example@email.com">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Skicka..">
+                </form>
+            </section>
+        </div>
+    </div>
+        
+    <hr>
+    <footer> 
+        <p class="text-muted text-center">
             Vill du veta mer? Skicka e-post till <a href="mailto:kavzor@gmail.com">kavzor@gmail.com</a>
         </p>
     </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,24 +1,32 @@
-body {   
-    background-color: #e8eaed;
-}
-
-section > figure{
-    margin: 0 10px 10px 0;
-}
 figcaption{
     font-size: 0.7rem;
 }
 
 .page-header{
-        background-image: url(../images/layout/header.jpg);
+    background-image: url(../images/layout/header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-footer {
-    text-align: center;
+.row > aside, .row > section{
+    box-shadow: 0 0 5px #0074D9;
 }
 
-.row > aside, .row > section{
-        box-shadow: 0 0 5px #0074D9;
+
+input[name="reply"][value="yes"]:checked ~ div{
+    transition: 0.3s linear 50ms;
+    transform: scale(1, 1);
 }
+
+input[name="reply"] ~ div{
+    transform: scale(1, 0);
+}
+
+input:invalid{
+    border-color: red;
+}
+
+input:not([type="submit"]):not(:placeholder-shown):valid{
+    border-color: lightgreen;
+}
+

@@ -51,7 +51,7 @@ body {
     font-size: 0.7em;
 }
 
-.container {
+.content{
     margin: 0 4% 10% 5%;
 
     background-color: #ffffff;
@@ -60,7 +60,7 @@ body {
 
 }
 
-.container:not(aside){
+.content:not(aside){
 	border-top: 5px solid #8aa5d1;
     border-radius: 10px 10px 0 0;
     margin-bottom: 20%;
@@ -69,11 +69,11 @@ body {
     overflow: hidden;
 }
 
-.container:not(aside) section{
+.content:not(aside) section{
     clear: left;
     margin-bottom: 10px;
 }
-.container:not(aside) figure {
+.content:not(aside) figure {
     float: left;
     margin: 0 20px 10px 0;
 }
@@ -81,7 +81,7 @@ body {
 
 /******** Aside section *******/
 
-.container:not(section) {
+.content:not(section) {
     position: absolute;
     right: 0;
     width: 20%;
@@ -91,7 +91,7 @@ body {
     text-align: center;
 }
 
-.container:not(section) img{
+.content:not(section) img{
     max-width: 80%;
     margin-bottom: 5px;
 }
