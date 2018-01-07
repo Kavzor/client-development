@@ -12,13 +12,30 @@ function findAll(selector){
 });*/
 
 var status_page = (function(selector) {
+
   remote.weather((response) => {
     table.refreshWeather(response);
   });
 
-  listen.click(selector.search_btn).default(false).execute((event) => {
-    remote.train("Stockholm", (response) => {
+  var fetchTrainData = (event) => {
+    var from = selector.search_field.value;
+    remote.train(from, (response) => {
       table.refreshTrain(response);
+    })
+  }
+
+  listen.click(selector.search_btn).default(false).execute(fetchTrainData);
+
+  listen.input(selector.search_field).execute((event) => {
+    var searchData = selector.search_field.value;
+    if(searchData.length > 3){
+      console.log("Search api, key: " + searchData);
+    }
+  });
+
+  selector.dropdown_items.forEach((item) => {
+    listen.click(item).execute((event) => {
+      selector.search_field.value = item.innerHTML;
     });
   });
 
@@ -71,6 +88,8 @@ var status_page = (function(selector) {
   status_field: find('.train-content td[colspan]'),
   train_from: find('.train-content caption'),
   train_table: find('.train-content tbody'),
-  weather_table: find('.weather-content tbody')
+  weather_table: find('.weather-content tbody'),
+  dropdown_menu: find('.dropdown-menu'),
+  dropdown_items: findAll('.dropdown-item')
 });
 

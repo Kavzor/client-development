@@ -3,9 +3,6 @@
 var listen = (function(){
   function Event(type){
     this.type = type;
-    /*if(this.element == null){
-      throw new Error('Error thrown and not caught, stopping executation \nElement is not defined for event \'' + this.event + '\'');
-    }*/
   };
   Object.defineProperties(Event.prototype, {
     'element': {
@@ -24,30 +21,115 @@ var listen = (function(){
         return this;
       }
     },
+    'blur': {
+      value: function(blur){
+        this.useBlur = blur;
+        return this;
+      },
+      writable: true
+    },
     'execute': {
-      value: function(call){
-        let useDefault = this.useDefault;
-        this.element.addEventListener(this.type, (event) => {
-          if(!useDefault){
-            event.preventDefault();
-          }
-          call(event);
-        });
+        value: function(call){
+          var event = new Event(this.type).element(this.element);
+          event.blur = this.useBlur;
+          event.useDefault = this.useDefault;
+          setCallBack(call);
+          //console.log(this);
+          //this.element.addEventListener(this.type, callBack);
       }
     }
+    /*'execute': {
+      value: function(callBack){
+        let useDefault = this.useDefault;
+        if(useDefault == undefined){
+          useDefault = true;
+        }
+        let keycode = this.keycode;
+        let blur = this.useBlur;
+        if(blur == undefined){
+          blur = false;
+        }
+
+        console.log("KEY: " + keycode);
+        console.log("BLUR: " + blur);
+        console.log("TYPE: " + this.type);
+
+        this.element.addEventListener(this.type, (event) => {
+          if(blur){ //breaks because of prototype, consider same for default
+            console.log("blurring");
+            event.target.blur();
+          }
+          if(!useDefault && (key.which == keycode || keycode == undefined)){
+            console.log("preventing");
+            event.preventDefault();
+          }
+          if(keycode != undefined){
+            if(keycode == event.which){
+              console.log("key pressed");
+              call(event);
+            }
+          }
+          else {
+            console.log("normal action");
+            call(event);
+          }
+        });
+      }
+    }*/
   });
 
-  var click = function click(element){
+  function setCallBack(event, callback){
+    console.log(event);
+      event.element.addEventListener(event.type, (e) => {
+        console.log(event.useBlur);
+        callback(e);
+      });
+    }
+
+  var click = function(element){
     return new Event('click').element(element);
   };
 
-  var input = function input(element){
+  var input = function(element){
     return new Event('input').element(element);
   }
 
+  var focusOut = function(element){
+    return new Event('focusout').element(element);
+  }
+
+  var key = (function(){
+    var enter = function(element){
+      var event = new Event('keydown').element(element);
+      event.keycode = '13';
+      console.log("EVENT: " + event);
+      return event;
+    };
+
+    var arrowDown = function(element){
+      var event = new Event('keydown').element(element);
+      event.keycode = '40';
+      return event;
+    };
+
+    var arrowUp = function(element){
+      var event = new Event('keydown').element(element);
+      event.keycode = '38';
+      return event;
+    }
+
+    return {
+      enter: enter,
+      arrowDown: arrowDown,
+      arrowUp: arrowUp
+    }
+  })();
+
   return {
     click: click,
-    input: input
+    input: input,
+    focusOut: focusOut,
+    key: key
   }
 })();
 

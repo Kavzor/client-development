@@ -55,36 +55,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <!--<tr>
-                                <td>09:00</td>
-                                <td>Moln</td>
-                                <td>16&#8451;</td>
-                                <td>3m/s</td>
-                            </tr>
-                            <tr>
-                                <td>12:00</td>
-                                <td>Sol</td>
-                                <td>18&#8451;</td>
-                                <td>4m/s</td>
-                            </tr>
-                            <tr>
-                                <td>15:00</td>
-                                <td>Sol</td>
-                                <td>20&#8451;</td>
-                                <td>2m/s</td>
-                            </tr>
-                            <tr>
-                                <td>18:00</td>
-                                <td>Regn</td>
-                                <td>19&#8451;</td>
-                                <td>3m/s</td>
-                            </tr>
-                            <tr>
-                                <td>21:00</td>
-                                <td>Moln</td>
-                                <td>17&#8451;</td>
-                                <td>1m/s</td>
-                            </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -96,7 +66,12 @@
                 <form>
                     <div class="form-group">
                         <label>Jag åker från..</label>
-                        <input class="form-control" placeholder="City.." type="text" />
+                        <input class="form-control" placeholder="City.." type="text"/>
+                        <div class="dropdown">
+                          <span class="dropdown-item">Fetching data..</span>
+                          <span class="dropdown-item">Fetching data..</span>
+                          <span class="dropdown-item">Fetching data..</span>
+                        </div>
                     </div>
                     <input id="train_search_btn" class="btn btn-primary" type="submit" value="Sök.." />
                 </form>
@@ -117,21 +92,6 @@
                            </tr>
                        </tfoot>
                        <tbody>
-                           <!--<tr>
-                               <td>42</td>
-                               <td>10:25</td>
-                               <td>11:23</td>
-                           </tr>
-                           <tr>
-                               <td>42</td>
-                               <td>12:25</td>
-                               <td>13:23</td>
-                           </tr>
-                           <tr>
-                               <td>42</td>
-                               <td>14:25</td>
-                               <td>15:23</td>
-                           </tr>-->
                        </tbody>
                    </table>
                 </div>
@@ -151,7 +111,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-<script src="assets/script/dom_event.js"></script>
+<!--<script src="assets/script/dom_event.js"></script>-->
+<script src="assets/script/new_dom_event.js"></script>
 <script src="assets/script/table_util.js"></script>
 <script src="assets/script/ajax_call.js"></script>
 <script src="assets/script/remote_call.js"></script>

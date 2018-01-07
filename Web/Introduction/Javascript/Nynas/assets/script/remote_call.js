@@ -22,6 +22,11 @@ var entity = (function(){
       writable: true,
       enumerable: true,
       configurable: false
+    },
+    enumerationOrder: {
+      get: function(){
+        return ['number', 'departs', 'arrives'];
+      }
     }
   });
 
@@ -56,6 +61,11 @@ var entity = (function(){
       writable: true,
       enumerable: true,
       configurable: false
+    },
+    'enumerationOrder': {
+      get: function(){
+        return ['clock', 'weather', 'heat', 'wind'];
+      }
     }
   })
 
@@ -107,16 +117,44 @@ var response = (function() {
 
     return response;
   }
-  var buildWeatherResponse = function(weather = entity.weather){
+  var buildWeatherResponse = function(responseData, weather = entity.weather){
+    responseData = JSON.parse(responseData);
+    return parseWeatherData(responseData);
+      /*
     var response = new WeatherResponse();
-
     response.push(weather("Moln").clock("09:00").heat(16).wind(3));
     response.push(weather("Sol").clock("12:00").heat(18).wind(4));
     response.push(weather("Sol").clock("15:00").heat(20).wind(2));
     response.push(weather("Regn").clock("18:00").heat(19).wind(3));
     response.push(weather("Moln").clock("21:00").heat(17).wind(1));
+*/
+  }
 
+  function parseWeatherData(weatherData, weather = entity.weather){
+    var response = new WeatherResponse();
+
+
+    for(let index = 0; index < 7; index++){
+      var time = weatherData.list[index].dt_txt;
+      time = new Date(time).getHours() + ":00";
+
+      var wind = weatherData.list[index].wind.speed.toFixed(1);
+      var temp = weatherData.list[index].main.temp;
+      temp = Number(temp - 273.15).toFixed(1);
+
+      var cloud = weatherData.list[index].clouds.all;
+
+      var weatherDesc = weatherData.list[index].weather[0].description;
+      weatherDesc = weatherDesc.charAt(0).toUpperCase() + weatherDesc.slice(1);
+
+      response.push(weather(weatherDesc).clock(time).heat(temp).wind(wind));
+
+    }
     return response;
+  }
+
+  function parseTrainData(trainData, train = entity.train){
+
   }
 
   return {
@@ -149,8 +187,8 @@ var remote = (function() {
   }
 
   var weather = function weather(callback, weatherResponse = response.buildWeatherResponse){
-    ajax.call("").then((response) => {
-      callback(weatherResponse());
+    ajax.call("http://api.openweathermap.org/data/2.5/forecast?q=Nynashamn&APPID=5b755d33b1f3737e41eab07a7de9424e&lang=se").then((reply) => {
+      callback(weatherResponse(reply.response));
     });
   }
 

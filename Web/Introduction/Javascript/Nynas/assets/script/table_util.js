@@ -12,11 +12,11 @@ Object.defineProperties(Table.prototype, {
         let tr = document.createElement('tr');
         this.tbody.appendChild(tr);
 
-        for(let property in object){
+        object.enumerationOrder.forEach((property) => {
             let td = document.createElement('td');
             td.innerHTML = object[property];
             tr.appendChild(td);
-        }
+        })
       });
     }
   },
