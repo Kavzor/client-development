@@ -9,9 +9,9 @@ var event = (function() {
         this.element = event.element;
         this.type = event.type;
         this.callback = event.callback;
-        this.useDefault = event.useDefault == undefined ? true : event.useDefault;
-        this.blur = event.blur == undefined ? false : event.blur;
-        this.keycode = event.keycode == undefined ? 0 : event.keycode
+        this.useDefault = event.useDefault | true;
+        this.blur = event.blur | false;
+        this.keycode = event.keycode | 0;
     }
 
     function EventHandler(){
@@ -119,4 +119,5 @@ var event = (function() {
         input: input,
         keyEnter: keyEnter
     }
+
 })();

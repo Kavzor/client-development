@@ -24,21 +24,42 @@ var status_page = (function(selector) {
     })
   }
 
-  listen.click(selector.search_btn).default(false).execute(fetchTrainData);
+  //listen.click(selector.search_btn).default(false).execute(fetchTrainData);
 
-  listen.input(selector.search_field).execute((event) => {
-    var searchData = selector.search_field.value;
-    if(searchData.length > 3){
-      console.log("Search api, key: " + searchData);
+  event.click({
+    element: selector.search_btn,
+    useDefault: false,
+    callback: fetchTrainData
+  });
+
+  event.input({
+    element: selector.search_field,
+    callback: function (event) {
+      var searchData = selector.search_field.value;
+      if(searchData.length > 3){
+        console.log("Search api, key: " + searchData);
+      }
     }
   });
 
-  selector.dropdown_items.forEach((item) => {
-    listen.click(item).execute((event) => {
-      selector.search_field.value = item.innerHTML;
-    });
+  event.keyEnter({
+    element: selector.search_field,
+    useDefault: false,
+    blur: true,
+    callback: fetchTrainData
   });
 
+
+  selector.dropdown_items.forEach((item) => {
+    event.click({
+      element: item,
+      callback: function(event){
+        //fetch from api
+        selector.search_field.value = item.innerHTML;
+      }
+    });
+  });
+    
   var table = (function(){
     var trainTable =
       new TrainTable(selector.train_table).
