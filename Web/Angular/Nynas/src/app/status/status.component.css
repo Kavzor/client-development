@@ -1,0 +1,30 @@
+.train-content caption:before{
+  content: 'Åker från: ';
+  }
+  
+  .weather-content td:nth-child(3):after{
+  content: '\2103';
+  }
+  
+  .weather-content td:nth-child(4):after{
+  content: 'm/s';
+  }
+  
+  .train-content {
+  min-height: 500px;
+  }
+  
+  input[type="text"] ~ .dropdown{
+  background-color: lightgrey;
+  transition: 0.2s;
+  opacity: 0.9;
+  width: 280px;
+  transform: scale(1, 0);
+  transition-delay: 200ms;
+  position: absolute;
+  }
+  
+  input[type="text"]:not(:placeholder-shown):focus ~ .dropdown{
+  transform: scale(1, 1);
+  }
+  

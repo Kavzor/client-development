@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="form-group  col-8">
+    <label for="filterInput">Filter</label>
+    <input [(ngModel)]='flightFilter' class="form-control col-8" id="filterInput" type="text">
+  </div>
+</div>
+<div class="table-responsive rounded">
+  <table class="table table-hover table-dark table-striped">
+    <caption>
+      Filtered by: {{ filter }}
+    <button class="btn btn-primary float-right" (click)="toggleUpdateState()">
+      {{ updateState ? 'Exit' : 'Enter' }} Edit Mode
+    </button>
+   </caption>
+    <thead class=""> 
+      <tr>
+        <th>
+          <button 
+            (click)="toggleImages()"
+            class="btn btn-danger m-0">
+            {{ showPlanes ? 'Hide' : 'Show' }} plane images
+          </button>
+        </th>
+        <th>Number</th>
+        <th>Type</th>
+        <th>Gate</th>
+        <th title="toggle clock" (click)="toggleClock()">Departs</th>
+        <th>Destination</th>
+        <th>Delays</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of filteredFlights; let listIndex = index">
+        <td>
+          <img *ngIf="showPlanes" width="80px" height="30px" [src]="flight.image">
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+            {{ flight.number }}
+          </div>
+          <div *ngIf="updateState">
+            <input class="form-control" type="text" [(ngModel)]="flight.number">
+          </div>
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+              {{ flight.type }}
+          </div>
+          <div *ngIf="updateState">
+              <input class="form-control" type="text" [(ngModel)]="flight.type">
+            </div>
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+              {{ flight.gate }}
+          </div>
+          <div *ngIf="updateState">
+              <input class="form-control" type="text" [(ngModel)]="flight.gate">
+            </div>
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+              {{ flight.departs | clock:showPeriodTime }}
+          </div>
+          <div *ngIf="updateState">
+              <input class="form-control" type="text" [(ngModel)]="flight.departs">
+            </div>
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+              {{ flight.destination }}
+          </div>
+          <div *ngIf="updateState">
+              <input class="form-control" type="text" [(ngModel)]="flight.destination">
+            </div>
+        </td>
+        <td>
+          <div *ngIf="!updateState">
+              {{ flight.delays | time:'hour':'minute' }}
+          </div>
+          <div *ngIf="updateState">
+            <input class="form-control" type="text" [(ngModel)]="flight.delays">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
